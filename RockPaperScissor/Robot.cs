@@ -14,7 +14,6 @@ namespace RockPaperScissor
         public Robot(string name)
         {
             this.name = name;
-            isHuman = false;
 
         }
         //Member Method (CAN D0)

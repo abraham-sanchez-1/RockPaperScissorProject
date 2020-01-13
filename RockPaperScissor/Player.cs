@@ -10,7 +10,7 @@ namespace RockPaperScissor
     {
         //member variable
         public string name;
-        public bool isHuman;
+
 
         //constructor
        

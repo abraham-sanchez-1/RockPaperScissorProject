@@ -11,10 +11,10 @@ namespace RockPaperScissor
         //Member Variable (HAS A)
 
         //Constructor (SPAWNER)
-        public Human(string name, bool isHuman)
+        public Human(string name)
         {
             this.name = name;
-            isHuman = true;
+
 
         }
 
