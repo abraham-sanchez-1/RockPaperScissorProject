@@ -11,28 +11,27 @@ namespace RockPaperScissor
                     //member variable
         public int gameMode = 0;
         public List<Player> players;
-        public Human human1 = new Human("player 1");
-        public Human human2 = new Human("player 2");
-        public Robot computer1 = new Robot("computer 1");
 
         //constructor
         public Game()
         {
+
+
             int GameModeChoice = SingleOrMultiplayer();
             if (GameModeChoice == 1)
             {
                 gameMode = 1;
-                players = new List<Player>() { human1, computer1};
+                
+                players = new List<Player>() {new Human ("Player 1"), new Robot("computer1")};
             }
             else
             {
                 gameMode = 2;
-                players = new List<Player>() { human1, human2};
+                
+                players = new List<Player>() {new Human("Player 1"), new Human("Player 2")};
             }
         }
         
-
-                    //member method
         public void GameRun()
         {
             if(gameMode ==1)
@@ -43,17 +42,6 @@ namespace RockPaperScissor
             {
                 MultiPlayer();
             }
-
-            //SingleOrMultiplayer()
-            //while player is at or below 2 && while player2 is at or below 2
-            //methods below will begin the game
-            //player selection
-            //second player selection
-            //firstplayer.selectoption
-            //secondplayer.selectoption
-            //compare selected options against each other and declare winner
-
-
 
         }
         public int SingleOrMultiplayer()
@@ -88,6 +76,8 @@ namespace RockPaperScissor
             {
                 int firstSelection; int secondSelection;
                 firstSelection = players[0].SelectOption();
+                Console.WriteLine("\nComputer will now choose option:\nClick to continue");
+                Console.ReadLine();
                 secondSelection = players[1].SelectOption();
                 SelectWinner(firstSelection, secondSelection);
                 
@@ -111,7 +101,9 @@ namespace RockPaperScissor
             {
                 int firstSelection; int secondSelection;
                 firstSelection = players[0].SelectOption();
+                Console.WriteLine("\nIt is now player 2's turn:");
                 secondSelection = players[1].SelectOption();
+                Console.WriteLine("");
                 SelectWinner(firstSelection, secondSelection);
 
             }
