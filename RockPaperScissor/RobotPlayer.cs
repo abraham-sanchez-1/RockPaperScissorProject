@@ -20,20 +20,12 @@ namespace RockPaperScissor
         //Member Method (CAN D0)
         public override int SelectOption()
         {
-            int userSelection = 0;
-            Console.WriteLine("Please select an option for this round");
-            Console.WriteLine("1)Rock\n2)Paper\n3)Scissors\n4)Spocl\n5)Lizard");
-            int.TryParse(Console.ReadLine(), out userSelection);
-            switch (userSelection)
-            {
-                case 1:
-                    userSelection = 1;
-                    return userSelection;
-                default:
-                    Console.WriteLine("Not Valid");
-                    return SelectOption();
-
-            }
+            String[] Options = new String[] { "rock", "paper", "scissor", "spock", "lizard"};
+            Random random = new Random();
+            int userSelection = random.Next(1,5);
+            Console.WriteLine("{0} has selected " + Options[userSelection] + "!", name);
+            return userSelection;
+            
         }
     }
 }

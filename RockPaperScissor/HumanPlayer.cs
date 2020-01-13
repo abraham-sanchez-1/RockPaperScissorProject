@@ -14,7 +14,7 @@ namespace RockPaperScissor
         public Human(string name, bool isHuman)
         {
             this.name = name;
-            this.isHuman = isHuman;
+            isHuman = true;
 
         }
 
@@ -22,24 +22,38 @@ namespace RockPaperScissor
         //Member Method (CAN DO)
         public override int SelectOption()
         {
-            int userSelection;
+            int userSelection = 0;
        
                 Console.WriteLine("Please select an option for this round");
                 Console.WriteLine("1)Rock\n2)Paper\n3)Scissors\n4)Spocl\n5)Lizard");
                 int.TryParse(Console.ReadLine(), out userSelection);
             switch (userSelection)
             {
+                case 1:
+                    userSelection = 1;
+                    Console.WriteLine("You have selected rock!");
+                    return userSelection;
+                case 2:
+                    userSelection = 2;
+                    Console.WriteLine("You have selected paper!");
+                    return userSelection;
+                case 3:
+                    userSelection = 3;
+                    Console.WriteLine("You have selected scissor!");
+                    return userSelection;
+                case 4:
+                    userSelection = 4;
+                    Console.WriteLine("You have selected spock!");
+                    return userSelection;
+                case 5:
+                    userSelection = 5;
+                    Console.WriteLine("You have selected lizard!");
+                    return userSelection;
                 default:
-                    Console.WriteLine("Not Valid");
+                    Console.WriteLine("The option you selected is not valid");
                     return SelectOption();
                     
             }
-        }
-        public int SelectionOutsideOfParameter()
-        {
-            Console.WriteLine("Invalid Entry: Please select integer from list");
-            int retry = SelectOption();
-            return retry;
         }
     }
 }
