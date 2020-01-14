@@ -74,7 +74,7 @@ namespace RockPaperScissor
         public void SinglePlayer()
         {
             
-            while(players[0].score <= 2 && players[1].score <=2)
+            while(players[0].score < 2 && players[1].score <2)
             {
                 int firstSelection; int secondSelection;
                 firstSelection = players[0].SelectOption();
@@ -84,11 +84,11 @@ namespace RockPaperScissor
                 SelectWinner(firstSelection, secondSelection);
                 
             }
-            if(players[0].score == 3)
+            if(players[0].score == 2)
             {
                 Console.WriteLine("{0} has won best out of three!",players[0].name);
             }
-            else if (players[1].score == 3)
+            else if (players[1].score == 2)
             {
                 Console.WriteLine("{0} has won best out of three!", players[1].name);
             }
@@ -99,7 +99,7 @@ namespace RockPaperScissor
         }
         public void MultiPlayer()
         {
-            while (players[0].score <= 2 && players[1].score <= 2)
+            while (players[0].score < 2 && players[1].score < 2)
             {
                 int firstSelection; int secondSelection;
                 firstSelection = players[0].SelectOption();
@@ -109,11 +109,11 @@ namespace RockPaperScissor
                 SelectWinner(firstSelection, secondSelection);
 
             }
-            if (players[0].score == 3)
+            if (players[0].score == 2)
             {
                 Console.WriteLine("{0} has won best out of three!", players[0].name);
             }
-            else if (players[1].score == 3)
+            else if (players[1].score == 2)
             {
                 Console.WriteLine("{0} has won best out of three!", players[1].name);
             }
