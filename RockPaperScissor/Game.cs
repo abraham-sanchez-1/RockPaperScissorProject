@@ -11,6 +11,7 @@ namespace RockPaperScissor
                     //member variable
         public int gameMode = 0;
         public List<Player> players;
+        public List<String> gestures = new List<string>() { "Rock", "Paper", "Scissor", "Lizard", "Spock" };
 
         //constructor
         public Game()
@@ -124,127 +125,137 @@ namespace RockPaperScissor
         public void SelectWinner(int selectionOne, int selectionTwo)
         {
             int selection;
-            int secondselection;
+            int secondSelection;
             selection = selectionOne;
-            secondselection = selectionTwo;
-            if (selection == 1 && secondselection == 1)
+            secondSelection = selectionTwo;
+            if (selection == 1)
+            {
+                if (secondSelection == 1)
+                { Console.WriteLine("TIE!"); }
+                else if (secondSelection == 3 || secondSelection == 4)
+                {
+                    Console.WriteLine("{0} beats {1}", gestures[selection - 1], gestures[secondSelection - 1]);
+                
+                }
+            }
+            if (selection == 1 && secondSelection == 1)
             {
                 Console.WriteLine("TIE!");
             }
-            else if (selection == 1 && secondselection ==2)
+            else if (selection == 1 && secondSelection ==2)
             {
                 Console.WriteLine("Paper covers rock, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 1 && secondselection == 3)
+            else if (selection == 1 && secondSelection == 3)
             {
                 Console.WriteLine("Rock crushes scissors, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 1 && secondselection == 4)
+            else if (selection == 1 && secondSelection == 4)
             {
                 Console.WriteLine("Rock smashes lizard, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 1 && secondselection == 5)
+            else if (selection == 1 && secondSelection == 5)
             {
                 Console.WriteLine("Spock vaporizes rock, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 2 && secondselection == 1)
+            else if (selection == 2 && secondSelection == 1)
             {
                 Console.WriteLine("Paper covers rock, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 2 && secondselection == 2)
+            else if (selection == 2 && secondSelection == 2)
             {
                 Console.WriteLine("TIE!");
             }
-            else if (selection == 2 && secondselection == 3)
+            else if (selection == 2 && secondSelection == 3)
             {
                 Console.WriteLine("Scissor cuts paper, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 2 && secondselection == 4)
+            else if (selection == 2 && secondSelection == 4)
             {
                 Console.WriteLine("Lizzard eats paper, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 2 && secondselection == 5)
+            else if (selection == 2 && secondSelection == 5)
             {
                 Console.WriteLine("Paper disproves spock, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 3 && secondselection == 1)
+            else if (selection == 3 && secondSelection == 1)
             {
                 Console.WriteLine("Rock crushes scissors, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 3 && secondselection == 2)
+            else if (selection == 3 && secondSelection == 2)
             {
                 Console.WriteLine("Scissors cuts paper, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 3 && secondselection == 3)
+            else if (selection == 3 && secondSelection == 3)
             {
                 Console.WriteLine("TIE!");
             }
-            else if (selection == 3 && secondselection == 4)
+            else if (selection == 3 && secondSelection == 4)
             {
                 Console.WriteLine("Scissor decapitates lizard, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 3 && secondselection == 5)
+            else if (selection == 3 && secondSelection == 5)
             {
                 Console.WriteLine("Spock crushes scissors, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 4 && secondselection == 1)
+            else if (selection == 4 && secondSelection == 1)
             {
                 Console.WriteLine("Rock crushes lizard, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 4 && secondselection == 2)
+            else if (selection == 4 && secondSelection == 2)
             {
                 Console.WriteLine("Lizard eats paper, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 4 && secondselection == 3)
+            else if (selection == 4 && secondSelection == 3)
             {
                 Console.WriteLine("Scissor decapitates lizard, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 4 && secondselection == 4)
+            else if (selection == 4 && secondSelection == 4)
             {
                 Console.WriteLine("TIE!");
             }
-            else if (selection == 4 && secondselection == 5)
+            else if (selection == 4 && secondSelection == 5)
             {
                 Console.WriteLine("Lizzard poisons spock, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 5 && secondselection == 1)
+            else if (selection == 5 && secondSelection == 1)
             {
                 Console.WriteLine("Spock vaporizes rock, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
 
-            else if (selection == 5 && secondselection == 2)
+            else if (selection == 5 && secondSelection == 2)
             {
                 Console.WriteLine("Paper disproves spock, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 5 && secondselection == 3)
+            else if (selection == 5 && secondSelection == 3)
             {
                 Console.WriteLine("Spock crushes scissors, {0} wins the round!", players[0].name);
                 players[0].score++;
             }
-            else if (selection == 5 && secondselection == 4)
+            else if (selection == 5 && secondSelection == 4)
             {
                 Console.WriteLine("Lizzard poisons spock, {0} wins the round!", players[1].name);
                 players[1].score++;
             }
-            else if (selection == 5 && secondselection == 5)
+            else if (selection == 5 && secondSelection == 5)
             {
                 Console.WriteLine("TIE!");
             }
