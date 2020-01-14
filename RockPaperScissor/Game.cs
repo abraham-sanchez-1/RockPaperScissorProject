@@ -101,6 +101,7 @@ namespace RockPaperScissor
             while (players[0].score < 2 && players[1].score < 2)
             {
                 int firstSelection; int secondSelection;
+                Console.WriteLine("\nPlayer 1 turn:");
                 firstSelection = players[0].SelectOption();
                 Console.WriteLine("\nIt is now player 2's turn:");
                 secondSelection = players[1].SelectOption();
