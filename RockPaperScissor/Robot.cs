@@ -22,6 +22,8 @@ namespace RockPaperScissor
             Random random = new Random();
             int userSelection = random.Next(1,5);
             Console.WriteLine("{0} has selected " + Options[userSelection-1] + "!", name);
+            Console.WriteLine("Click to continue");
+            Console.ReadLine();
             return userSelection;
             
         }
