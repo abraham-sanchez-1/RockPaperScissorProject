@@ -18,18 +18,13 @@ namespace RockPaperScissor
         {
 
             IntroMenu();
-            int GameModeChoice = SingleOrMultiplayer();
-            if (GameModeChoice == 1)
-            {
-                
-                gameMode = 1;
-                
+            SingleOrMultiplayer();
+            if (gameMode == 1)
+            {   
                 players = new List<Player>() {new Human ("Player 1"), new Robot("computer1")};
             }
             else
-            {
-                gameMode = 2;
-                
+            {              
                 players = new List<Player>() {new Human("Player 1"), new Human("Player 2")};
             }
         }
@@ -47,7 +42,7 @@ namespace RockPaperScissor
             }
 
         }
-        public int SingleOrMultiplayer()
+        public void SingleOrMultiplayer()
         {
             int userSelection = 0;
 
@@ -59,15 +54,18 @@ namespace RockPaperScissor
                 case 1:
                     userSelection = 1;
                     Console.WriteLine("You have selected single player!");
-                    return userSelection;
+                    gameMode = userSelection;
+                    break;
                 case 2:
                     userSelection = 2;
                     Console.WriteLine("You have selected multiplayer!");
-                    return userSelection;
-               
+                    gameMode = userSelection;
+                    break;
+
                 default:
                     Console.WriteLine("The option you selected is not valid");
-                    return SingleOrMultiplayer();
+                    gameMode = userSelection;
+                    break;
 
             }
         }
@@ -96,6 +94,7 @@ namespace RockPaperScissor
             { 
                 Console.WriteLine("something is wrong"); 
             }
+            GameEnd();
         }
         public void MultiPlayer()
         {
@@ -121,6 +120,7 @@ namespace RockPaperScissor
             {
                 Console.WriteLine("something is wrong");
             }
+            GameEnd();
 
         }
         public void SelectWinner(int selectionOne, int selectionTwo)
@@ -132,7 +132,11 @@ namespace RockPaperScissor
             if (selection == 1)
             {
                 if (secondSelection == 1)
-                { Console.WriteLine("TIE!"); }
+                { 
+                    Console.WriteLine("TIE!"); 
+                    Console.WriteLine("Click to continue");
+                    Console.ReadLine();
+                }
                 else if (secondSelection == 3 || secondSelection == 4)
                 {
                     //player 1 winner
@@ -153,7 +157,11 @@ namespace RockPaperScissor
             if (selection == 2)
             {
                 if (secondSelection == 2)
-                { Console.WriteLine("TIE!"); }
+                {
+                    Console.WriteLine("TIE!");
+                    Console.WriteLine("Click to continue");
+                    Console.ReadLine();
+                }
                 else if (secondSelection == 1 || secondSelection == 5)
                 {
                     //player 1 winner
@@ -174,7 +182,11 @@ namespace RockPaperScissor
             if (selection == 3)
             {
                 if (secondSelection == 3)
-                { Console.WriteLine("TIE!"); }
+                {
+                    Console.WriteLine("TIE!");
+                    Console.WriteLine("Click to continue");
+                    Console.ReadLine();
+                }
                 else if (secondSelection == 2 || secondSelection == 4)
                 {
                     //player 1 winner
@@ -195,7 +207,11 @@ namespace RockPaperScissor
             if (selection == 4)
             {
                 if (secondSelection == 4)
-                { Console.WriteLine("TIE!"); }
+                {
+                    Console.WriteLine("TIE!");
+                    Console.WriteLine("Click to continue");
+                    Console.ReadLine();
+                }
                 else if (secondSelection == 2 || secondSelection == 5)
                 {
                     //player 1 winner
@@ -216,7 +232,11 @@ namespace RockPaperScissor
             if (selection == 5)
             {
                 if (secondSelection == 5)
-                { Console.WriteLine("TIE!"); }
+                {
+                    Console.WriteLine("TIE!");
+                    Console.WriteLine("Click to continue");
+                    Console.ReadLine();
+                }
                 else if (secondSelection == 1 || secondSelection == 3)
                 {
                     //player 1 winner
@@ -366,8 +386,39 @@ namespace RockPaperScissor
         }
         public void GameEnd()
         {
-            Console.WriteLine("Would you like to play again?");
+            int userSelection = 0;
 
+            Console.WriteLine("Would you like to play again?");
+            Console.WriteLine("1)Yes\n2)No");
+            int.TryParse(Console.ReadLine(), out userSelection);
+            switch (userSelection)
+            {
+                case 1:
+                    userSelection = 1;
+                    Console.WriteLine("Resetting game!");
+                    players.Clear();
+                    SingleOrMultiplayer();
+                    if (gameMode == 1)
+                    {
+                        players = new List<Player>() { new Human("Player 1"), new Robot("computer1") };
+                    }
+                    else
+                    {
+                        players = new List<Player>() { new Human("Player 1"), new Human("Player 2") };
+                    }
+                    GameRun();
+
+                    break;
+                case 2:
+                    userSelection = 2;
+                    Console.WriteLine("Byeeeeeeee!");
+                    break;
+                default:
+                    Console.WriteLine("Option selected was invalid");
+                    GameEnd();
+                        break;
+
+            }
         }
     }
 }
