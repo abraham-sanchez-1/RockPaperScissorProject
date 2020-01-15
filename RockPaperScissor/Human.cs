@@ -11,7 +11,7 @@ namespace RockPaperScissor
         //Member Variable (HAS A)
 
         //Constructor (SPAWNER)
-        public Human(string name) :base(name)
+        public Human(string name) 
         {
             this.name = name;
         }

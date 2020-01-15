@@ -21,7 +21,7 @@ namespace RockPaperScissor
             SingleOrMultiplayer();
             if (gameMode == 1)
             {   
-                players = new List<Player>() {new Human ("Player 1"), new Robot("computer1")};
+                players = new List<Player>() {new Human ("Player 1"), new Robot()};
             }
             else
             {              
@@ -31,15 +31,15 @@ namespace RockPaperScissor
         
         public void GameRun()
         {
-            
-            if(gameMode ==1)
-            {
-                SinglePlayer();
-            }
-            else
-            {
-                MultiPlayer();
-            }
+
+            //if (gameMode == 1)
+            //{
+                GamePlay();
+            //}
+            //else
+            //{
+            //    MultiPlayer();
+            //}
 
         }
         public void SingleOrMultiplayer()
@@ -69,15 +69,15 @@ namespace RockPaperScissor
 
             }
         }
-        public void SinglePlayer()
+        public void GamePlay()
         {
             
-            while(players[0].score < 2 && players[1].score <2)
+            while(players[0].score < 2 && players[1].score < 2)
             {
                 int firstSelection; int secondSelection;
+                Console.WriteLine("{0}'s turn", players[0].name);
                 firstSelection = players[0].SelectOption();
-                Console.WriteLine("\nComputer will now choose option:\nClick to continue");
-                Console.ReadLine();
+                Console.WriteLine("{0}'s turn", players[1].name);
                 secondSelection = players[1].SelectOption();
                 SelectWinner(firstSelection, secondSelection);
                 
@@ -96,34 +96,34 @@ namespace RockPaperScissor
             }
             GameEnd();
         }
-        public void MultiPlayer()
-        {
-            while (players[0].score < 2 && players[1].score < 2)
-            {
-                int firstSelection; int secondSelection;
-                Console.WriteLine("\nPlayer 1 turn:");
-                firstSelection = players[0].SelectOption();
-                Console.WriteLine("\nIt is now player 2's turn:");
-                secondSelection = players[1].SelectOption();
-                Console.WriteLine("");
-                SelectWinner(firstSelection, secondSelection);
+        //public void MultiPlayer()
+        //{
+        //    while (players[0].score < 2 && players[1].score < 2)
+        //    {
+        //        int firstSelection; int secondSelection;
+        //        Console.WriteLine("\nPlayer 1 turn:");
+        //        firstSelection = players[0].SelectOption();
+        //        Console.WriteLine("\nIt is now player 2's turn:");
+        //        secondSelection = players[1].SelectOption();
+        //        Console.WriteLine("");
+        //        SelectWinner(firstSelection, secondSelection);
 
-            }
-            if (players[0].score == 2)
-            {
-                Console.WriteLine("{0} has won best out of three!", players[0].name);
-            }
-            else if (players[1].score == 2)
-            {
-                Console.WriteLine("{0} has won best out of three!", players[1].name);
-            }
-            else
-            {
-                Console.WriteLine("something is wrong");
-            }
-            GameEnd();
+        //    }
+        //    if (players[0].score == 2)
+        //    {
+        //        Console.WriteLine("{0} has won best out of three!", players[0].name);
+        //    }
+        //    else if (players[1].score == 2)
+        //    {
+        //        Console.WriteLine("{0} has won best out of three!", players[1].name);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("something is wrong");
+        //    }
+        //    GameEnd();
 
-        }
+        //}
         public void SelectWinner(int selectionOne, int selectionTwo)
         {
             int selection;
@@ -146,7 +146,7 @@ namespace RockPaperScissor
                     Console.WriteLine("Click to continue");
                     Console.ReadLine();
                 }
-                else if (selectionTwo == 2 || selectionTwo == 5)
+                else
                 {
                     //player 1 loser
                     Console.WriteLine("{0} beats {1}, {2} wins!", gestures[secondSelection - 1], gestures[selection - 1], players[1].name);
@@ -171,7 +171,7 @@ namespace RockPaperScissor
                     Console.WriteLine("Click to continue");
                     Console.ReadLine();
                 }
-                else if (selectionTwo == 3 || selectionTwo == 4)
+                else
                 {
                     //player 1 loser
                     Console.WriteLine("{0} beats {1}, {2} wins!", gestures[secondSelection - 1], gestures[selection - 1], players[1].name);
@@ -196,7 +196,7 @@ namespace RockPaperScissor
                     Console.WriteLine("Click to continue");
                     Console.ReadLine();
                 }
-                else if (selectionTwo == 1 || selectionTwo == 5)
+                else
                 {
                     //player 1 loser
                     Console.WriteLine("{0} beats {1}, {2} wins!", gestures[secondSelection - 1], gestures[selection - 1], players[1].name);
@@ -221,7 +221,7 @@ namespace RockPaperScissor
                     Console.WriteLine("Click to continue");
                     Console.ReadLine();
                 }
-                else if (selectionTwo == 1 || selectionTwo == 3)
+                else
                 {
                     //player 1 loser
                     Console.WriteLine("{0} beats {1}, {2} wins!", gestures[secondSelection - 1], gestures[selection - 1], players[1].name);
@@ -246,7 +246,7 @@ namespace RockPaperScissor
                     Console.WriteLine("Click to continue");
                     Console.ReadLine();
                 }
-                else if (selectionTwo == 2 || selectionTwo == 4)
+                else
                 {
                     //player 1 loser
                     Console.WriteLine("{0} beats {1}, {2} wins!", gestures[secondSelection - 1], gestures[selection - 1], players[1].name);
@@ -401,7 +401,7 @@ namespace RockPaperScissor
                     SingleOrMultiplayer();
                     if (gameMode == 1)
                     {
-                        players = new List<Player>() { new Human("Player 1"), new Robot("computer1") };
+                        players = new List<Player>() { new Human("Player 1"), new Robot() };
                     }
                     else
                     {

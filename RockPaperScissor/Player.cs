@@ -13,9 +13,8 @@ namespace RockPaperScissor
         public int score;
 
         //constructor
-        public Player(string name)
+        public Player()
         {
-            this.name = name;
             score = 0;
         }
        

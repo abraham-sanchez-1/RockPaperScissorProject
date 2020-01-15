@@ -11,9 +11,9 @@ namespace RockPaperScissor
         //Member Variable (HAS A)
  
         //Constructor (SPAWNER)
-        public Robot(string name) :base (name)
+        public Robot() 
         {
-            this.name = name;
+            name = "Computer";
         }
         //Member Method (CAN D0)
         public override int SelectOption()
